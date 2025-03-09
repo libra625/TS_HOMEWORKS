@@ -1,3 +1,17 @@
-console.log('none');
-const fs = require('fs');
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Student_1 = require("./classes/Student");
+var Teacher_1 = require("./classes/Teacher");
+var Course_1 = require("./classes/Course");
+var CourseManager_1 = require("./classes/CourseManager");
+var student1 = new Student_1.Student('Frank', 'frank@gmail.com', '147369!');
+var student2 = new Student_1.Student('Fang', 'fang@gmail.com', '147369!');
+var teacher1 = new Teacher_1.Teacher('John', 'john@gmail.com', '147369!');
+var teacher2 = new Teacher_1.Teacher('Alice', 'alice@gmail.com', '147369!');
+var webStorm = new Course_1.Course('WebStorm', teacher1);
+var React = new Course_1.Course('React', teacher2);
+webStorm.addStudent([student2]);
+React.addStudent([student2, student1]);
+var manager = new CourseManager_1.CourseManager([student1, student2, teacher2, teacher1], [webStorm, React]);
+console.log({ manager: manager });
+console.log(CourseManager_1.CourseManager.generateReport([webStorm, React]));
